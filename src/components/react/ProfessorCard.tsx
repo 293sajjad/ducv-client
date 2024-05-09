@@ -22,11 +22,12 @@ const ProfessorCard: FC<{
   adjectives: string[] | string;
   star: number;
   img: string;
-}> = ({ name, family, adjectives, star, img }) => {
+  slug: string;
+}> = ({ name, family, adjectives, star, img, slug }) => {
   return (
     <>
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
-        <a href={`#`} className="text-black">
+        <a href={`/professors/${slug}`} className="text-black">
           <div className="bg-white rounded-lg shadow-md p-4 h-full w-full lg:w-52">
             <div className="mb-4">
               <img

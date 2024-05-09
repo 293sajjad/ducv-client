@@ -1,0 +1,15 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import CV from "../../../components/react/CV";
+const { slug } = Astro.params;
+const token = import.meta.env.ACCESS_TOKEN;
+const url = import.meta.env.API_URL;
+---
+
+<Layout title="CV">
+  <div class="max-w-4xl mx-auto py-12">
+    <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+      <CV url={url} token={token} slug={slug} client:only />
+    </div>
+  </div>
+</Layout>

@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useEffect, useState, type FC } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 import ProfessorCard from "./ProfessorCard";
 
 interface Professor {
@@ -17,6 +15,7 @@ interface Professor {
         };
       }[];
     };
+    slug: string;
     avatar: {
       data: {
         attributes: {
@@ -113,6 +112,7 @@ const ProfessorLanding: FC<{ token: string; url: string }> = ({
           {filteredProfessors.map((professor) => (
             <ProfessorCard
               key={professor.id}
+              slug={professor.attributes.slug}
               name={professor.attributes.name}
               family={professor.attributes.family}
               adjectives={professor.attributes.adjectives}
