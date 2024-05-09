@@ -1,0 +1,10 @@
+---
+import ProfessorLanding from "../../components/react/ProfessorsLanding";
+import Layout from "../../layouts/Layout.astro";
+const token = import.meta.env.ACCESS_TOKEN;
+const url = import.meta.env.API_URL;
+---
+
+<Layout title="Professors">
+  <ProfessorLanding token={token} url={url} client:load />
+</Layout>

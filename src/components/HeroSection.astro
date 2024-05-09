@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import "animate.css";
+import dulogo from "../assets/dulogo.png";
+import fanivamohandesi from "../assets/fanivamohandesi.png";
+import cmanjoman from "../assets/cmanjoman.png";
+---
+
+<div class="lg:w-2/3 text-center mx-auto" dir="rtl">
+  <h1
+    class="text-gray-900 dark:text-white font-bold font-[Lalezar] text-5xl md:text-6xl xl:text-7xl animate__animated animate__bounceIn"
+  >
+    به DUCV خوش آمدید
+    <br />
+    <span class="text-primary text-4xl dark:text-white"
+      >استادت رو بهتر بشناس</span
+    >
+  </h1>
+  <p id="typing-text" class="mt-10 text-gray-700 text-sm dark:text-gray-300">
+    این وب سایت، اساتید دانشگاه دامغان را به شما معرفی می کند و به شما این امکان
+    را می دهد تا آنها را با هم مقایسه کرده و به آنها امتیاز دهید و نظرات خود را
+    با دوستانتان به اشتراک بگذارید
+  </p>
+
+  <div class="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
+    <a
+      href="/professors"
+      class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+    >
+      <span class="relative text-base font-semibold text-white">شروع کنید</span>
+    </a>
+    <a
+      href="/aboutme"
+      class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+    >
+      <span
+        class="relative text-base font-semibold text-primary dark:text-white"
+        >اطلاعات بیشتر</span
+      >
+    </a>
+  </div>
+  <div
+    class="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between"
+  >
+    <div class="">
+      <h6 class="text-lg font-semibold text-gray-700 dark:text-white">
+        محبوب و کاربردی
+      </h6>
+      <p class="mt-2 text-gray-500">رابط کاربری جذاب</p>
+    </div>
+    <div class="">
+      <h6 class="text-lg font-semibold text-gray-700 dark:text-white">
+        دسترسی کامل و آسان
+      </h6>
+      <p class="mt-2 text-gray-500">اطلاعات +50 استاد</p>
+    </div>
+    <div class="">
+      <h6 class="text-lg font-semibold text-gray-700 dark:text-white">
+        سرعت و امنیت بالا
+      </h6>
+      <p class="mt-2 text-gray-500">استفاده از تکنولوژی های بروز</p>
+    </div>
+  </div>
+</div>
+<div class="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6" dir="rtl">
+  <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
+    <Image
+      src={dulogo}
+      class="h-12 w-auto mx-auto"
+      alt="وبسایت دانشگاه دامغان"
+    />
+  </div>
+  <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
+    <Image
+      src={fanivamohandesi}
+      class="h-12 w-auto mx-auto"
+      loading="lazy"
+      alt="دانشگاه فنی و مهندسی"
+    />
+  </div>
+  <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
+    <Image
+      src={cmanjoman}
+      class="h-12 w-auto mx-auto"
+      loading="lazy"
+      alt="انجمن مهندسی کامپیوتر دامغان"
+    />
+  </div>
+  <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
+    <img
+      src="./images/clients/ge.svg"
+      class="h-12 w-auto mx-auto"
+      loading="lazy"
+      alt="client logo"
+      width=""
+      height=""
+    />
+  </div>
+  <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
+    <img
+      src="./images/clients/netflix.svg"
+      class="h-8 w-auto m-auto"
+      loading="lazy"
+      alt="client logo"
+      width=""
+      height=""
+    />
+  </div>
+  <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
+    <img
+      src="./images/clients/google-cloud.svg"
+      class="h-12 w-auto mx-auto"
+      loading="lazy"
+      alt="client logo"
+      width=""
+      height=""
+    />
+  </div>
+</div>
+
+<style>
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
+</style>
