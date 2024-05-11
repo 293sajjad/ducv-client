@@ -1,6 +1,7 @@
 import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { FC } from "react";
+import type { ProfessorData } from "../../interfaces/Professor";
 const renderStars = (rating: number) => {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating - fullStars >= 0.5;
@@ -17,13 +18,10 @@ const renderStars = (rating: number) => {
 };
 
 const ProfessorCard: FC<{
-  name: string;
-  family: string;
-  adjectives: string[] | string;
-  star: number;
-  img: string;
+  p: ProfessorData;
   slug: string;
-}> = ({ name, family, adjectives, star, img, slug }) => {
+  star: number;
+}> = ({ p, slug, star }) => {
   return (
     <>
       <div className="w-full md:w-1/2 lg:w-1/4 p-4">
@@ -31,16 +29,18 @@ const ProfessorCard: FC<{
           <div className="bg-white rounded-lg shadow-md p-4 h-full w-full lg:w-52">
             <div className="mb-4">
               <img
-                src={`http://localhost:1337${img}`}
-                alt={`${name} ${family}`}
+                src={`http://localhost:1337${p.attributes.avatar.data.attributes.url}`}
+                alt={`${p.attributes.name} ${p.attributes.family}`}
                 className="w-full h-40 object-cover rounded"
               />
             </div>
             <h2 className="text-xl font-semibold text-gray-800">
-              {`${name} ${family}`}
+              {`${p.attributes.name} ${p.attributes.family}`}
             </h2>
             <p className="text-gray-600 text-sm">
-              {adjectives.length == 1 ? adjectives : adjectives[0]}
+              {p.attributes.adjectives.length == 1
+                ? p.attributes.adjectives
+                : p.attributes.adjectives[0]}
             </p>
             {star == 0 ? (
               <p className="mt-2 text-xs">هنوز امتیازی ثبت نشده</p>

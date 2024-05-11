@@ -1,36 +1,13 @@
 import axios from "axios";
 import { useEffect, useState, type FC } from "react";
 import ProfessorCard from "./ProfessorCard";
-
-interface Professor {
-  id: string;
-  attributes: {
-    name: string;
-    family: string;
-    adjectives: string;
-    scores: {
-      data: {
-        attributes: {
-          rate: number;
-        };
-      }[];
-    };
-    slug: string;
-    avatar: {
-      data: {
-        attributes: {
-          url: string;
-        };
-      };
-    };
-  };
-}
+import type { ProfessorData } from "../../interfaces/Professor";
 
 const ProfessorLanding: FC<{ token: string; url: string }> = ({
   token,
   url,
 }) => {
-  const [professors, setProfessors] = useState<Professor[]>([]);
+  const [professors, setProfessors] = useState<ProfessorData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -64,7 +41,7 @@ const ProfessorLanding: FC<{ token: string; url: string }> = ({
     setSearchQuery(event.target.value);
   };
 
-  const calculateStarRating = (professor: Professor) => {
+  const calculateStarRating = (professor: ProfessorData) => {
     const scores = professor.attributes.scores.data;
     if (scores.length === 0) {
       return 0;
@@ -113,11 +90,8 @@ const ProfessorLanding: FC<{ token: string; url: string }> = ({
             <ProfessorCard
               key={professor.id}
               slug={professor.attributes.slug}
-              name={professor.attributes.name}
-              family={professor.attributes.family}
-              adjectives={professor.attributes.adjectives}
+              p={professor}
               star={calculateStarRating(professor)}
-              img={professor.attributes.avatar.data.attributes.url}
             />
           ))}
         </div>
