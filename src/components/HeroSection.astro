@@ -4,6 +4,9 @@ import "animate.css";
 import dulogo from "../assets/dulogo.png";
 import fanivamohandesi from "../assets/fanivamohandesi.png";
 import cmanjoman from "../assets/cmanjoman.png";
+import strapilogo from "../assets/strapi-icon-seeklogo.svg";
+import astrologo from "../assets/astrojs.svg";
+import robotic from "../assets/robotic.png";
 ---
 
 <div class="lg:w-2/3 text-center mx-auto" dir="rtl">
@@ -58,7 +61,7 @@ import cmanjoman from "../assets/cmanjoman.png";
       <h6 class="text-lg font-semibold text-gray-700 dark:text-white">
         سرعت و امنیت بالا
       </h6>
-      <p class="mt-2 text-gray-500">استفاده از تکنولوژی های بروز</p>
+      <p class="mt-2 text-gray-500">استفاده از تکنولوژی های به روز</p>
     </div>
   </div>
 </div>
@@ -87,33 +90,22 @@ import cmanjoman from "../assets/cmanjoman.png";
     />
   </div>
   <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-    <img
-      src="./images/clients/ge.svg"
+    <Image
+      src={strapilogo}
       class="h-12 w-auto mx-auto"
       loading="lazy"
-      alt="client logo"
-      width=""
-      height=""
+      alt="فریم ورک استرپی"
     />
   </div>
   <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-    <img
-      src="./images/clients/netflix.svg"
-      class="h-8 w-auto m-auto"
-      loading="lazy"
-      alt="client logo"
-      width=""
-      height=""
-    />
+    <Image src={astrologo} class="h-12 w-auto mx-auto" alt="astro.js" />
   </div>
   <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-    <img
-      src="./images/clients/google-cloud.svg"
+    <Image
+      src={robotic}
       class="h-12 w-auto mx-auto"
       loading="lazy"
-      alt="client logo"
-      width=""
-      height=""
+      alt="انجمن علمی رباتیک دانشگاه دامغان"
     />
   </div>
 </div>

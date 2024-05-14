@@ -1,30 +1,26 @@
----
-import Container from "./Container.astro";
----
-
-<footer class="py-20 md:py-40">
-  <div class="m-auto md:w-10/12 lg:w-8/12 xl:w-6/12">
-    <div class="footer-content text-center">
-      <p>&copy; 2024 Sajjad BN. All rights reserved.</p>
-    </div>
-  </div>
+<footer class="flex justify-center items-center p-4">
+  <p class="text-gray-600 fancy-fade-in">&copy; 2024 حق کپی‌رایت محفوظ است.</p>
 </footer>
 
 <style>
-  .footer {
-    background-color: rgba(255, 255, 255, 0.9); /* Adjust opacity as needed */
-    backdrop-filter: blur(10px); /* Adjust blur intensity */
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  @keyframes fancyFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+      color: #d1d5db; /* رنگ اولیه (خاکستری روشن) */
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.02);
+      color: #6b7280; /* رنگ میانی (خاکستری تیره‌تر) */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      color: #4b5563; /* رنگ نهایی (خاکستری تیره) */
+    }
   }
-
-  .footer-content {
-    text-align: center;
-    font-size: 14px;
-    color: #333; /* Adjust text color */
+  .fancy-fade-in {
+    animation: fancyFadeIn 3s ease-in-out;
   }
 </style>
