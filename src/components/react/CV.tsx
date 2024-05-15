@@ -1,6 +1,8 @@
 import { type FC, useState, useEffect } from "react";
 import axios from "axios";
 import type { ProfessorData } from "../../interfaces/Professor";
+import AboutCv from "./cv/AboutCV";
+import SkillCv from "./cv/SkillCV";
 
 const CV: FC<{ token: string; url: string; slug: string }> = ({
   token,
@@ -66,17 +68,17 @@ const CV: FC<{ token: string; url: string; slug: string }> = ({
 
   return (
     <div className="p-8">
-      <div className="flex flex-col items-center md:flex-row md:items-start">
+      <div className="flex flex-col items-center md:flex-row md:items-center p-4 ">
         <img
           src={"http://localhost:1337" + attributes.avatar.data.attributes.url}
           alt={attributes.name}
-          className="w-24 h-24 rounded-full border-cyan-900 border-[3px] m-2"
+          className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-cyan-900 object-cover"
         />
-        <div className="text-center md:text-left">
-          <h2 className="m-2 text-2xl font-[Lalezar] font-semibold text-gray-800">
+        <div className="mt-4 md:mt-0 md:ml-6 text-center md:text-left mr-2">
+          <h2 className="text-xl md:text-2xl font-bold  text-sky-400 ">
             {attributes.name} {attributes.family}
           </h2>
-          <p className="text-gray-600 text-xs">
+          <p className="text-gray-800 text-sm md:text-base mt-2 w-40">
             {attributes.adjectives.length == 1
               ? attributes.adjectives
               : attributes.adjectives[0]}
@@ -85,76 +87,12 @@ const CV: FC<{ token: string; url: string; slug: string }> = ({
       </div>
 
       <div className="mt-8">
-        <div className="max-w-[40rem] mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-4 h-auto">
-          <div className="px-4 py-2 h-full">
-            <h1 className="text-gray-900 font-bold text-xl uppercase">
-              درباره من
-            </h1>
-            <p className="text-gray-600 mt-2">{attributes.aboutMe}</p>
-          </div>
-          <div className="flex justify-between items-center px-4 py-2 bg-gray-200 h-full">
-            <p className="text-gray-600">مرتبه : {attributes.academic_rank}</p>
-            <p className="text-gray-600">سن : {attributes.age}</p>
-          </div>
-        </div>
-
-        <div className="max-w-[40rem] h-auto mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-4">
-          <div className="px-4 py-2">
-            <h1 className="text-gray-900 font-bold text-xl uppercase">
-              توانایی‌ها
-            </h1>
-            <div className="mt-4">
-              <div className="flex items-center mb-2">
-                <div className="w-1/3">
-                  <p className="text-gray-600">مهارت 1</p>
-                </div>
-                <div className="w-2/3">
-                  <div className="flex items-center">
-                    <div className="flex-1 h-2 relative rounded-full bg-gray-200">
-                      <div
-                        className="absolute h-full bg-blue-500 rounded-full"
-                        style={{ width: "60%" }}
-                      />
-                    </div>
-                    <p className="ml-2 text-gray-600">4/5</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center mb-2">
-                <div className="w-1/3">
-                  <p className="text-gray-600">مهارت 2</p>
-                </div>
-                <div className="w-2/3">
-                  <div className="flex items-center">
-                    <div className="flex-1 h-2 relative rounded-full bg-gray-200">
-                      <div
-                        className="absolute h-full bg-blue-500 rounded-full"
-                        style={{ width: "80%" }}
-                      />
-                    </div>
-                    <p className="ml-2 text-gray-600">5/5</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center mb-2">
-                <div className="w-1/3">
-                  <p className="text-gray-600">مهارت 3</p>
-                </div>
-                <div className="w-2/3">
-                  <div className="flex items-center">
-                    <div className="flex-1 h-2 relative rounded-full bg-gray-200">
-                      <div
-                        className="absolute h-full bg-blue-500 rounded-full"
-                        style={{ width: "40%" }}
-                      />
-                    </div>
-                    <p className="ml-2 text-gray-600">2/5</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <AboutCv
+          text={attributes.aboutMe}
+          rank={attributes.academic_rank}
+          age={attributes.age}
+        />
+        <SkillCv data={attributes.skills.data} />
 
         <div className="max-w-[40rem] h-auto mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-4">
           <div className="px-4 py-2">

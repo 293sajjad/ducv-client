@@ -1,3 +1,11 @@
+export interface Activity {
+  title: string;
+  description: string;
+  date_start: string;
+  date_end: string;
+  status: string;
+}
+
 interface AvatarAttributes {
   name: string;
   alternativeText: string | null;
@@ -22,6 +30,11 @@ interface AvatarData {
   attributes: AvatarAttributes;
 }
 
+export interface Skill {
+  id: number;
+  attributes: { title: string; degree: number };
+}
+
 interface ProfessorAttributes {
   name: string;
   family: string;
@@ -30,7 +43,7 @@ interface ProfessorAttributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  phoen: string;
+  phone: string;
   address: string;
   email: string | null;
   aboutMe: string | null;
@@ -43,11 +56,11 @@ interface ProfessorAttributes {
   teachings: { data: any[] };
   researches: { data: any[] };
   honors: { data: any[] };
-  activities: { data: any[] };
-  skills: { data: any[] };
+  activities: { data: Activity[] };
+  skills: { data: Skill[] };
   comments: { data: any[] };
   scores: { data: any[] };
-  academic_rank;
+  academic_rank: string;
 }
 
 export interface ProfessorData {
