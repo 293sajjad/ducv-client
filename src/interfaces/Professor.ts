@@ -30,6 +30,27 @@ interface AvatarData {
   attributes: AvatarAttributes;
 }
 
+export interface Education {
+  id: number;
+  attributes: {
+    grade: string;
+    name_of_the_institution: string;
+    gpa: number;
+    date_start: string;
+    date_end: string;
+    description: string;
+  };
+}
+
+export interface Honor {
+  id: number;
+  attributes: {
+    title: string;
+    date: string;
+    description: string;
+  };
+}
+
 export interface Skill {
   id: number;
   attributes: { title: string; degree: number };
@@ -43,7 +64,7 @@ interface ProfessorAttributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  phone: string;
+  phone_number: string;
   address: string;
   email: string | null;
   aboutMe: string | null;
@@ -52,14 +73,15 @@ interface ProfessorAttributes {
   slug: string;
   avatar: { data: AvatarData };
   video: { data: any };
-  educations: { data: any[] };
+  educations: { data: Education[] };
   teachings: { data: any[] };
-  researches: { data: any[] };
-  honors: { data: any[] };
+  ResearchActivitie: { data: any };
+  honors: { data: Honor[] };
   activities: { data: Activity[] };
   skills: { data: Skill[] };
   comments: { data: any[] };
   scores: { data: any[] };
+
   academic_rank: string;
 }
 

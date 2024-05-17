@@ -11,7 +11,7 @@ const url = import.meta.env.API_URL;
     <div
       class="body-animate backdrop-blur-xl rounded-lg overflow-hidden shadow-2xl"
     >
-      <CV url={url} token={token} slug={slug} client:load />
+      <CV url={url} token={token} slug={slug} client:only />
     </div>
   </div>
 </Layout>
