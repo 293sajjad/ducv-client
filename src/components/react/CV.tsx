@@ -8,6 +8,7 @@ import EducationCv from "./cv/EducationCV";
 import HonorCv from "./cv/HonorCV";
 import ResearchActivities from "./cv/ResearchActivitieCV";
 import SendEmailCv from "./cv/SendEmailCV";
+import Rating from "./cv/Rating";
 
 const CV: FC<{ token: string; url: string; slug: string }> = ({
   token,
@@ -80,7 +81,7 @@ const CV: FC<{ token: string; url: string; slug: string }> = ({
           className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-cyan-900 object-cover"
         />
         <div className="mt-4 md:mt-0 md:ml-6 text-center md:text-left mr-2">
-          <h2 className="text-xl md:text-2xl font-bold  text-sky-400 ">
+          <h2 className="text-xl md:text-2xl font-bold  text-gray-900 ">
             {attributes.name} {attributes.family}
           </h2>
           <p className="text-gray-800 text-sm md:text-base mt-2 w-40">
@@ -98,12 +99,15 @@ const CV: FC<{ token: string; url: string; slug: string }> = ({
           age={attributes.age}
         />
         <SkillCv data={attributes.skills.data} />
-
         <ContactCv phone={attributes.phone_number} email={attributes.email} />
         <EducationCv education={attributes.educations.data} />
         <HonorCv honors={attributes.honors.data} />
-        <ResearchActivities />
+        <ResearchActivities
+          data={attributes.research_activitie.data.attributes}
+        />
         <SendEmailCv />
+        <Rating professorId={professorData.id} token={token} />{" "}
+        {/* اضافه کردن کامپوننت Rating */}
       </div>
     </div>
   );

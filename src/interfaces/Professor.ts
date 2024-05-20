@@ -75,7 +75,7 @@ interface ProfessorAttributes {
   video: { data: any };
   educations: { data: Education[] };
   teachings: { data: any[] };
-  ResearchActivitie: { data: any };
+  research_activitie: { data: { id: number; attributes: any } };
   honors: { data: Honor[] };
   activities: { data: Activity[] };
   skills: { data: Skill[] };
