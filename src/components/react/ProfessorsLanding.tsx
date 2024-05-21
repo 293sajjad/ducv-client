@@ -15,11 +15,14 @@ const ProfessorLanding: FC<{ token: string; url: string }> = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${url}professors?populate=*`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          `${url}professors?fields[0]=name&fields[1]=family&fields[2]=adjectives&fields[3]=slug&populate[0]=avatar&populate[1]=scores`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setProfessors(response.data.data);
         setLoading(false);
       } catch (error) {
