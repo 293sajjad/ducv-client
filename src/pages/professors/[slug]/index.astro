@@ -4,6 +4,7 @@ import CV from "../../../components/react/CV";
 const { slug } = Astro.params;
 const token = import.meta.env.ACCESS_TOKEN;
 const url = import.meta.env.API_URL;
+const SCtoken = import.meta.env.COMMENT_SCORE_TOKEN;
 ---
 
 <Layout title="CV">
@@ -11,7 +12,7 @@ const url = import.meta.env.API_URL;
     <div
       class="body-animate backdrop-blur-xl rounded-lg overflow-hidden shadow-2xl"
     >
-      <CV url={url} token={token} slug={slug} client:only />
+      <CV url={url} token={token} slug={slug} SCtoken={SCtoken} client:only />
     </div>
   </div>
 </Layout>

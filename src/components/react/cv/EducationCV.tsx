@@ -4,12 +4,14 @@ import type { Education } from "../../../interfaces/Professor";
 const EducationCv: FC<{ education: Education[] }> = ({ education }) => {
   return (
     <div className="max-w-[40rem] mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-4 ">
-      <h1 className="text-gray-900 font-bold text-xl uppercase font-[Lalezar]">
-        تحصیلات استاد
-      </h1>
-      {education.map((e, index) => (
-        <EducationCard key={index} education={e.attributes} />
-      ))}
+      <div className="p-6">
+        <h1 className="text-gray-900 font-bold text-xl uppercase font-[Lalezar]">
+          تحصیلات استاد
+        </h1>
+        {education.map((e, index) => (
+          <EducationCard key={index} education={e.attributes} />
+        ))}
+      </div>
     </div>
   );
 };
