@@ -9,6 +9,7 @@ import HonorCv from "./cv/HonorCV";
 import ResearchActivities from "./cv/ResearchActivitieCV";
 import SendEmailCv from "./cv/SendEmailCV";
 import Rating from "./cv/Rating";
+import TeachingCV from "./cv/Teaching";
 
 const CV: FC<{ token: string; url: string; slug: string; SCtoken: string }> = ({
   token,
@@ -121,6 +122,7 @@ const CV: FC<{ token: string; url: string; slug: string; SCtoken: string }> = ({
         <SkillCv data={attributes.skills.data} />
         <ContactCv phone={attributes.phone_number} email={attributes.email} />
         <EducationCv education={attributes.educations.data} />
+        <TeachingCV data={attributes.teachings.data} />
         <HonorCv honors={attributes.honors.data} />
         <ResearchActivities
           data={attributes.research_activitie.data.attributes}
