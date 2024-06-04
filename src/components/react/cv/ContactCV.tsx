@@ -1,16 +1,21 @@
 import type { FC } from "react";
 
-const ContactCv: FC<{ phone: string; email: string }> = ({ phone, email }) => {
+const ContactCv: FC<{ phone: string; email: string; scholar: string }> = ({
+  phone,
+  email,
+  scholar,
+}) => {
   return (
     <div className="max-w-[40rem] h-auto mx-auto bg-white shadow-xl rounded-lg overflow-hidden mb-6 flex flex-col items-center">
       <div className="px-6 py-4 text-center">
         <h1 className="text-gray-900 font-bold text-2xl uppercase font-[Lalezar]">
-          اطلاعات تماس
+          راه‌های ارتباطی
         </h1>
         <div className="mt-4">
           <div className="flex flex-col space-y-4" style={{ direction: "ltr" }}>
             <ContactItem icon="phone" text={phone} />
             <ContactItem icon="email" text={email} />
+            <ContactItem icon="scholar" text={scholar} />
           </div>
         </div>
       </div>
@@ -18,10 +23,10 @@ const ContactCv: FC<{ phone: string; email: string }> = ({ phone, email }) => {
   );
 };
 
-const ContactItem: FC<{ icon: "phone" | "email"; text: string }> = ({
-  icon,
-  text,
-}) => {
+const ContactItem: FC<{
+  icon: "phone" | "email" | "scholar";
+  text: string;
+}> = ({ icon, text }) => {
   const icons = {
     phone: (
       <svg
@@ -55,12 +60,39 @@ const ContactItem: FC<{ icon: "phone" | "email"; text: string }> = ({
         />
       </svg>
     ),
+    scholar: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6 text-blue-500"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 3.75l8.25 4.125-8.25 4.125-8.25-4.125L12 3.75zM21 9.625l-1.5.75v4.5l1.5.75m-18 0l1.5-.75v-4.5l-1.5-.75M4.5 14.875v-4.5M19.5 14.875v-4.5M3 21.75h18M4.5 18.75h15"
+        />
+      </svg>
+    ),
   };
 
   return (
     <div className="flex items-center space-x-4">
       {icons[icon]}
-      <p className="text-gray-600">{text}</p>
+      {icon === "scholar" ? (
+        <a
+          href={text}
+          className="text-blue-500 underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          گوگل اسکولار
+        </a>
+      ) : (
+        <p className="text-gray-600">{text}</p>
+      )}
     </div>
   );
 };

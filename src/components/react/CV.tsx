@@ -120,7 +120,11 @@ const CV: FC<{ token: string; url: string; slug: string; SCtoken: string }> = ({
           age={attributes.age}
         />
         <SkillCv data={attributes.skills.data} />
-        <ContactCv phone={attributes.phone_number} email={attributes.email} />
+        <ContactCv
+          phone={attributes.phone_number}
+          email={attributes.email}
+          scholar={attributes.google_scholar}
+        />
         <EducationCv education={attributes.educations.data} />
         <TeachingCV data={attributes.teachings.data} />
         <HonorCv honors={attributes.honors.data} />
